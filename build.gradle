@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.7'
+}
+
+defaultTasks 'clean', 'test', 'aggregate'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '4.2.7'
+    junitVersion = '5.10.2'
+    assertJVersion = '3.25.3'
+    playwrightVersion = '1.42.0' // Use the latest stable version if available
+}
+
+dependencies {
+    testImplementation "net.serenity-bdd:serenity-core:${serenityVersion}"
+    testImplementation "net.serenity-bdd:serenity-junit5:${serenityVersion}"
+    testImplementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
+    testImplementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
+    testImplementation "net.serenity-bdd:serenity-ensure:${serenityVersion}"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+
+    testImplementation "org.assertj:assertj-core:${assertJVersion}"
+
+    // Playwright for Java
+    testImplementation "com.microsoft.playwright:playwright:${playwrightVersion}"
+}
+
+test {
+    systemProperty "playwright.browser", "chromium"
+    useJUnitPlatform()
+    maxParallelForks = 4
+}
+
+serenity {
+    testRoot = "starter" // Change "starter" to your root package if needed, e.g., "com.example"
+}
+
+test.finalizedBy aggregate
