@@ -1,8 +1,8 @@
-package com.epam.pages;
+package com.epam.ui.pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import com.epam.core.PlaywrightManager;
+import com.epam.ui.core.PlaywrightManager;
 import net.serenitybdd.core.pages.PageObject;
 
 public class HomePage extends PageObject {

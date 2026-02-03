@@ -1,11 +1,9 @@
-package com.epam.pages;
+package com.epam.ui.pages;
 
-import com.epam.core.PlaywrightManager;
+import com.epam.ui.core.PlaywrightManager;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import net.serenitybdd.core.pages.PageObject;
-
-import java.util.Locale;
 
 public class ProductsPage extends PageObject {
     private Page page() {

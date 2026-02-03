@@ -1,6 +1,6 @@
-package com.epam.steps;
+package com.epam.ui.steps;
 
-import com.epam.pages.LoginPage;
+import com.epam.ui.pages.LoginPage;
 import net.serenitybdd.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 

@@ -1,34 +1,36 @@
-package com.epam.tests;
+package com.epam.ui.tests;
 
-import com.epam.hooks.PlaywrightHooks;
-import com.epam.steps.HomePageSteps;
-import com.epam.steps.LoginSteps;
-
-import net.serenitybdd.annotations.Step;
+import com.epam.ui.hooks.PlaywrightHooks;
+import com.epam.ui.steps.HomePageSteps;
+import com.epam.ui.steps.LoginSteps;
+import com.epam.ui.steps.ProductsSteps;
 import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(SerenityJUnit5Extension.class)
-public class HomePageTest extends PlaywrightHooks {
+public class AddToCartTest extends PlaywrightHooks {
+    @Steps
+    LoginSteps loginSteps;
+
     @Steps
     HomePageSteps homePageSteps;
 
     @Steps
-    LoginSteps loginSteps;
+    ProductsSteps productsSteps;
 
     @Test
-    @DisplayName("User can go to products page from home page")
+    @DisplayName("Add to cart")
     void verifyProductsPageButton(){
         loginSteps.loginAs("rahul",
                 "rahul@2021",
                 "https://nikhtrendz.ccbp.tech/login");
         homePageSteps.validateShopNowButtonVisibility();
         homePageSteps.goToProductsPage();
-
+        productsSteps.addAnItemToCart();
+        productsSteps.verifyAddToCart();
     }
 
 }

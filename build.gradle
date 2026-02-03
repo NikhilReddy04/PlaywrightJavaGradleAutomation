@@ -13,33 +13,42 @@ ext {
     serenityVersion = '4.2.7'
     junitVersion = '5.10.2'
     assertJVersion = '3.25.3'
-    playwrightVersion = '1.42.0' // Use the latest stable version if available
+    playwrightVersion = '1.42.0'
 }
 
 dependencies {
+
+    // Serenity Core
     testImplementation "net.serenity-bdd:serenity-core:${serenityVersion}"
     testImplementation "net.serenity-bdd:serenity-junit5:${serenityVersion}"
+
+    // Serenity API testing
+    testImplementation "net.serenity-bdd:serenity-rest-assured:${serenityVersion}"
+    testImplementation "io.rest-assured:rest-assured:5.4.0"
+
+    // Serenity Screenplay (optional but fine)
     testImplementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
     testImplementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
     testImplementation "net.serenity-bdd:serenity-ensure:${serenityVersion}"
 
+    // JUnit
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
 
+    // Assertions
     testImplementation "org.assertj:assertj-core:${assertJVersion}"
 
-    // Playwright for Java
+    // Playwright
     testImplementation "com.microsoft.playwright:playwright:${playwrightVersion}"
 }
 
 test {
-    systemProperty "playwright.browser", "chromium"
     useJUnitPlatform()
     maxParallelForks = 4
 }
 
 serenity {
-    testRoot = "starter" // Change "starter" to your root package if needed, e.g., "com.example"
+    testRoot = "com.yourcompany" // update to your base package
 }
 
 test.finalizedBy aggregate

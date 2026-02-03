@@ -1,8 +1,7 @@
-package com.epam.steps;
+package com.epam.ui.steps;
 
-import com.epam.pages.HomePage;
+import com.epam.ui.pages.HomePage;
 import net.serenitybdd.annotations.Step;
-import net.serenitybdd.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;

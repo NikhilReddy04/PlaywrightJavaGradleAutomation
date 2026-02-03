@@ -1,8 +1,8 @@
-package com.epam.steps;
+package com.epam.ui.steps;
 
-import com.epam.pages.CartPage;
-import com.epam.pages.HomePage;
-import com.epam.pages.ProductsPage;
+import com.epam.ui.pages.CartPage;
+import com.epam.ui.pages.HomePage;
+import com.epam.ui.pages.ProductsPage;
 import com.microsoft.playwright.Locator;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.Serenity;

@@ -1,6 +1,6 @@
-package com.epam.hooks;
+package com.epam.ui.hooks;
 
-import com.epam.core.PlaywrightManager;
+import com.epam.ui.core.PlaywrightManager;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;

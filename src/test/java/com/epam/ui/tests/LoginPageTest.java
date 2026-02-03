@@ -1,8 +1,8 @@
-package com.epam.tests;
+package com.epam.ui.tests;
 
-import com.epam.hooks.PlaywrightHooks;
-import com.epam.steps.HomePageSteps;
-import com.epam.steps.LoginSteps;
+import com.epam.ui.hooks.PlaywrightHooks;
+import com.epam.ui.steps.HomePageSteps;
+import com.epam.ui.steps.LoginSteps;
 
 import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;

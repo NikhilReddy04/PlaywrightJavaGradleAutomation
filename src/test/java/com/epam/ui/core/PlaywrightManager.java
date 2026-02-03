@@ -1,4 +1,4 @@
-package com.epam.core;
+package com.epam.ui.core;
 
 import com.microsoft.playwright.*;
 
