@@ -15,13 +15,10 @@ public class PrimeDealsSteps {
     public void callPrimeDealsApi() {
         String token = Serenity.sessionVariableCalled("AUTH_TOKEN");
 
-        Serenity.recordReportData()
-                .withTitle("dd Token")
-                .andContents("ddgdgd");
-
+        if(token != null){
         Serenity.recordReportData()
                 .withTitle("Auth Token")
-                .andContents(token);
+                .andContents("Token generated");}
 
         SerenityRest
                 .given()

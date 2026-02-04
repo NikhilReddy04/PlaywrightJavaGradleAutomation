@@ -3,6 +3,7 @@ package com.epam.ui.steps;
 import com.epam.ui.pages.CartPage;
 import com.epam.ui.pages.HomePage;
 import com.epam.ui.pages.ProductsPage;
+import com.epam.ui.utils.ScreenshotTaker;
 import com.microsoft.playwright.Locator;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.Serenity;
@@ -31,5 +32,7 @@ public class ProductsSteps {
         assertThat(cartPage.myCartHeading()).isVisible();
         String productName = Serenity.sessionVariableCalled("selectedProduct");
         assertThat(cartPage.getProductByName(productName)).isVisible();
+        ScreenshotTaker.attachScreenshot("Cart Screenshot");
+
     }
 }
