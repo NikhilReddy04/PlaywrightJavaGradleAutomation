@@ -21,7 +21,6 @@ public class PrimeDealsApiTest {
 
     @BeforeAll
     static void setup() {
-        // Initialize base URI before tests
         ApiConfig.init();
     }
 
