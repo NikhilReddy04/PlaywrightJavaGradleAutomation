@@ -9,7 +9,7 @@ public class PaymentRequest {
 
     public PaymentRequest() {
     }
-
+    //For test
     public PaymentRequest(String cardNumber, String expiry, String cvv, String cardHolderName) {
         this.cardNumber = cardNumber;
         this.expiry = expiry;
