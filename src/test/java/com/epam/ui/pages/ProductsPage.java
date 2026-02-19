@@ -10,11 +10,12 @@ public class ProductsPage extends PageObject {
         return PlaywrightManager.getInstance().getPage();
     }
 
-    public Locator primeDealsTitle(){
+    public Locator primeDealsTitle( ){
         return page().locator("xpath=//h1[normalize-space()='Exclusive Prime Deals']");
     }
 
     public Locator getAProductFromProductsPage(){
+        page().pause();
         return page().locator("xpath=//ul[@class='products-list']//h1").first();
     }
 

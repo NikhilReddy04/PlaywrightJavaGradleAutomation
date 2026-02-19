@@ -2,6 +2,9 @@ package com.epam.ui.core;
 
 import com.microsoft.playwright.*;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public final class PlaywrightManager {
 
     private static final ThreadLocal<Playwright> playwrightTL = new ThreadLocal<>();
@@ -20,7 +23,6 @@ public final class PlaywrightManager {
         return Holder.INSTANCE;
     }
 
-    // ✅ Chromium only, thread-safe
     public void startBrowser() {
 
         if (playwrightTL.get() == null) {
@@ -38,14 +40,27 @@ public final class PlaywrightManager {
         }
     }
 
+
+
     public void startSession() {
 
-        BrowserContext context = browserTL.get().newContext();
+        Path videoDir = Paths.get(
+                System.getProperty("user.dir"),
+                "target",
+                "videos"
+        );
+
+        BrowserContext context = browserTL.get().newContext(
+                new Browser.NewContextOptions()
+                        .setRecordVideoDir(videoDir)
+        );
+
         Page page = context.newPage();
 
         contextTL.set(context);
         pageTL.set(page);
     }
+
 
     public Page getPage() {
         return pageTL.get();
