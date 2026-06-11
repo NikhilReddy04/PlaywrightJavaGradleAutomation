@@ -11,7 +11,7 @@ public class ProductsPage extends PageObject {
     }
 
     public Locator primeDealsTitle( ){
-        return page().locator("xpath=//h1[normalize-space()='Exclusive Prime Deals']");
+        return page().locator("xpath=//h1[normalize-space()='Expensive Prime Deals']");
     }
 
     public Locator getAProductFromProductsPage(){
