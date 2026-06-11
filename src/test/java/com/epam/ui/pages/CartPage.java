@@ -18,6 +18,6 @@ public class CartPage extends PageObject {
     }
 
     public Locator myCartHeading() {
-        return page().locator("//h1[normalize-space()='My Cart']");
+        return page().locator("//h1[normalize-space()='My Product Cart']");
     }
 }
