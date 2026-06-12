@@ -15,11 +15,11 @@ public class HomePage extends PageObject {
     }
 
     public void clickProductsButton(){
-        page().click("xpath=//a[normalize-space()='Products']");
+        page().getByRole(com.microsoft.playwright.options.AriaRole.LINK, new Page.GetByRoleOptions().setName("Products")).click();
     }
 
     public Locator shopNowButton(){
-       return page().locator("xpath=//button[normalize-space()='Shop Now']");
+       return page().getByRole(com.microsoft.playwright.options.AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Shop Now"));
     }
 
 

@@ -11,13 +11,11 @@ public class CartPage extends PageObject {
         return PlaywrightManager.getInstance().getPage();
     }
 
-    // //p[contains(.,'Hair Dryer')]
     public Locator getProductByName(String productName) {
-        String xpath = "//p[contains(.,'" + productName + "')]";
-        return page().locator(xpath);
+        return page().getByText(productName, new Page.GetByTextOptions().setExact(true));
     }
 
     public Locator myCartHeading() {
-        return page().locator("//h1[normalize-space()='My Product Cart']");
+        return page().getByRole(com.microsoft.playwright.options.AriaRole.HEADING, new Page.GetByRoleOptions().setName("My Product Cart"));
     }
 }

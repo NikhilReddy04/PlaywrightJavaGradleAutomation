@@ -11,19 +11,18 @@ public class ProductsPage extends PageObject {
     }
 
     public Locator primeDealsTitle( ){
-        return page().locator("xpath=//h1[normalize-space()='Expensive Prime Deals']");
+        return page().getByRole(com.microsoft.playwright.options.AriaRole.HEADING, new Page.GetByRoleOptions().setName("Expensive Prime Deals"));
     }
 
     public Locator getAProductFromProductsPage(){
-        page().pause();
-        return page().locator("xpath=//ul[@class='products-list']//h1").first();
+        return page().locator("ul.products-list h1").first();
     }
 
     public void clickAddToCartButton(){
-        page().locator("//button[normalize-space()='ADD TO CART']").click();
+        page().getByRole(com.microsoft.playwright.options.AriaRole.BUTTON, new Page.GetByRoleOptions().setName("ADD TO CART")).click();
     }
 
     public void goToCart(){
-        page().locator("//a[contains(text(),'Cart')]").click();
+        page().getByRole(com.microsoft.playwright.options.AriaRole.LINK, new Page.GetByRoleOptions().setName("Cart")).click();
     }
 }
