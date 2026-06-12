@@ -15,7 +15,6 @@ public class ProductsPage extends PageObject {
     }
 
     public Locator getAProductFromProductsPage(){
-        page().pause();
         return page().locator("ul.products-list h1").first();
     }
 
