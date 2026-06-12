@@ -15,14 +15,14 @@ public class LoginPage extends PageObject {
     }
 
     public void enterUsername(String username) {
-        page().fill("#username", username);
+        page().getByLabel("Username").fill(username);
     }
 
     public void enterPassword(String password) {
-        page().fill("#password", password);
+        page().getByLabel("Password").fill(password);
     }
 
     public void clickLogin() {
-        page().click("//button[normalize-space()='Login']");
+        page().getByRole(com.microsoft.playwright.options.AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();
     }
 }
